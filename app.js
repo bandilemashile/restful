@@ -5,7 +5,7 @@ const app =  express();
 const fs = require("fs")
 const path = require("path")
 
-
+//cors
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -25,7 +25,7 @@ const getAllFiles = function(dirPath, arrayOfFiles) {
       arrayOfFiles.push(path.join(__dirname, dirPath, "/", file))
     }
   })
-
+//get method
   app.get('/', (req,res) => {
     res.send(arrayOfFiles)
 
@@ -35,7 +35,7 @@ const getAllFiles = function(dirPath, arrayOfFiles) {
 
 
 const result = getAllFiles("./tests")
-// [ "FILE_PATH", "FILE_PATH", "FILE_PATH" ]
+// [ "FILE_PATH" ]
 
 
 
